@@ -8,28 +8,32 @@ var graphqlviz = require('./');
 
 var cli = meow([
   'Options:',
-  '  -a, --noargs     render without field arguments',
-  '  -v, --verbose    print introspection result',
+  '  -f, --nofields     render without field',
+  '  -a, --noargs       render without field arguments',
+  '  -m, --nomutations  render without field arguments',
+  '  -v, --verbose      print introspection result',
   '',
   'Usage',
-  '  $ graphqlviz [url]',
+  '  $ ./cli.js [url] [options]',
   '      Renders dot schema from [url] endpoint',
   '',
   'Examples',
-  '  $ graphqlviz https://localhost:3000 | dot -Tpng -o graph.png',
-  '  $ graphqlviz http://graphql-swapi.parseapp.com | dot -Tpng | open -f -a Preview',
-  '  $ cat result.json | graphqlviz | dot -Tpng | open -f -a Preview',
+  '  $ ./cli.js https://localhost:3000/graphql -a | dot -Tpng -o graph.png',
   ' '
 ], {
   alias: {
     v: 'verbose',
-    a: 'noargs'
+    a: 'noargs',
+    f: 'nofields',
+    m: 'nomutations'
   }
 });
 
 // build render options
 var opts = {
-  noargs: cli.flags.noargs
+  noargs: cli.flags.noargs,
+  nofields: cli.flags.nofields,
+  nomutations: cli.flags.nomutations
 };
 
 function terminate() {

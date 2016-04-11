@@ -1,12 +1,8 @@
-# 1.1.0
+# 0.0.1
 
-- Include field arguments in output by default
-- Introduce `--noargs` flat to suppress field arguments printing
+- Add mutations fields.
+- Add required indicator to query fields.
 
-# 1.0.1
+# 0.0.0
 
-- Use introspection query staight from graphql package
-
-# 1.0.0
-
-Initial release
+Initial release [based on sheerun/graphqlviz](https://github.com/sheerun/graphqlviz)
